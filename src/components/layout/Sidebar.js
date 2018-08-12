@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default () => {
     return (
         <Link to="/client/add" className="btn btn-warning btn-block">
-            <i className="fas fa-plus" /> New Client
+            <i className="fas fa-plus" /> New Tutor
         </Link>
     )
 }
