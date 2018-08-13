@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 // Components
+import Login from './components/auth/Login'
 import AppNavbar from './components/layout/AppNavbar';
 import Dashboard from './components/layout/Dashboard';
 import AddClient from './components/clients/AddClient';
@@ -19,6 +20,7 @@ class App extends Component {
         <AppNavbar />
         <div className="container">
           <Switch>
+            <Route exact path="/login" component={Login} />
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/client/add" component={AddClient} />
             <Route exact path="/client/:id" component={ClientDetails} />
