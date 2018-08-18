@@ -9,6 +9,8 @@ import { firebaseCredentials } from './utils/config'
 
 
 // Reducers
+import notifyReducer from './reducers/notifyReducer';
+
 const firebaseConfig = {
     apiKey: firebaseCredentials.apiKey,
     authDomain: firebaseCredentials.authDomain,
@@ -38,7 +40,8 @@ const createStoreWithFirebase = compose(
 
 const rootReducer = combineReducers({
     firebase: firebaseReducer,
-    firestore: firestoreReducer
+    firestore: firestoreReducer,
+    notify: notifyReducer,
 });
 
 // Create initial state
