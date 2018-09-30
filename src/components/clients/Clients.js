@@ -28,25 +28,6 @@ class Clients extends Component {
     
     
     render() {
-        // const clients = [
-        // {
-        //     id: '332425',
-        //     firstName: 'Char',
-        //     lastName: 'Mander',
-        //     email: 'mander@up.edu',
-        //     phone: '560-284-2453',
-        //     balance: '30',
-        //     premium: false
-        // },
-        // {
-        //     id: '123425',
-        //     firstName: 'Pika',
-        //     lastName: 'Chu',
-        //     email: 'chu2@up.edu',
-        //     phone: '560-987-9283',
-        //     balance: '500',
-        //     premium: true
-        // }]
         
         const { clients } = this.props;
         const { totalAmount } = this.state;
@@ -61,7 +42,9 @@ class Clients extends Component {
                 <div className="col-md-6">
                 <h5 className="text-right text-secondary">
                     Total Amount{' '} 
-                    <span className="text-primary">${parseFloat(totalAmount).toFixed(2) }</span>
+                    <span className="text-primary">
+                        ${parseFloat(totalAmount).toFixed(2) }
+                    </span>
                 </h5>
                 </div>
                 <table className="table table-striped table-dark">

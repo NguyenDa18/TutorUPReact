@@ -10,6 +10,7 @@ import { firebaseCredentials } from './utils/config'
 
 // Reducers
 import notifyReducer from './reducers/notifyReducer';
+import settingsReducer from './reducers/settingsReducer';
 
 const firebaseConfig = {
     apiKey: firebaseCredentials.apiKey,
@@ -42,6 +43,7 @@ const rootReducer = combineReducers({
     firebase: firebaseReducer,
     firestore: firestoreReducer,
     notify: notifyReducer,
+    settings: settingsReducer
 });
 
 // Create initial state

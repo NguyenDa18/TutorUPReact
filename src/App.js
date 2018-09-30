@@ -9,8 +9,10 @@ import store from './store';
 import Login from './components/auth/Login';
 import AppNavbar from './components/layout/AppNavbar';
 import Dashboard from './components/layout/Dashboard';
+import NotFound from './components/layout/NotFound';
 import Settings from './components/settings/Settings';
 import AddClient from './components/clients/AddClient';
+import EditClient from './components/clients/EditClient';
 import ClientDetails from './components/clients/ClientDetails';
 
 class App extends Component {
@@ -26,7 +28,9 @@ class App extends Component {
             <Route exact path="/" component={UserIsAuthenticated(Dashboard)} />
             <Route exact path="/settings" component={UserIsAuthenticated(Settings)} />
             <Route exact path="/client/add" component={UserIsAuthenticated(AddClient)} />
+            <Route exact path="/client/edit/:id" component={UserIsAuthenticated(EditClient)} />
             <Route exact path="/client/:id" component={UserIsAuthenticated(ClientDetails)} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </div>
