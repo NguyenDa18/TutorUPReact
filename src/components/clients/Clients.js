@@ -37,7 +37,7 @@ class Clients extends Component {
             <div className="row">
                 <div className="col-md-6">
                     {' '}
-                    <h2><i className="fas fa-users"></i> Tutors </h2>
+                    <h2 class="text-info"><i className="fas fa-users"></i> Tutors </h2>
                 </div>
                 <div className="col-md-6">
                 <h5 className="text-right text-secondary">
