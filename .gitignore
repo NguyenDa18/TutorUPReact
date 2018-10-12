@@ -2,6 +2,7 @@
 
 # config
 src/utils/config.js
+.env
 
 # dependencies
 /node_modules

@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { 
+    setAllowRegistration,
     setDisableOnAdd,
     setDisableOnEdit,
-    setAllowRegistration
 } from '../../actions/settingsActions';
 
 class Settings extends Component {
     render() {
-        const { disableonAdd, disableonEdit, allowRegistration } = this.props.settings;
+        const { allowRegistration, disableonAdd, disableonEdit } = this.props.settings;
         return (
             <React.Fragment>
                 <div className="row">
@@ -20,10 +20,9 @@ class Settings extends Component {
                         </Link>
                     </div>
                 </div>
+                
                 <div className="card">
-                    <div className="card-header">
-                        Edit Settings
-                    </div>
+                    <div className="card-header">Edit Settings</div>
                     <div className="card-body">
                         <form>
                             <div className="form-group">
@@ -34,7 +33,13 @@ class Settings extends Component {
                             </div>
                             <div className="form-group">
                                 <label>Disable On Add</label>{` `}
-                                <input type="disableOnAdd" name="allowRegistration" 
+                                <input type="checkbox" name="allowRegistration" 
+                                checked={!!setAllowRegistration} 
+                                onChange={this.allowRegistration}/>
+                            </div>
+                            <div className="form-group">
+                                <label>Disable On Edit</label>{` `}
+                                <input type="checkbox" name="allowRegistration" 
                                 checked={!!setAllowRegistration} 
                                 onChange={this.allowRegistration}/>
                             </div>

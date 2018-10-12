@@ -14,6 +14,12 @@ class ClientDetails extends Component {
     
     onChange = e => this.setState({ [e.target.name]: e.target.value });
     
+    onDelete = () => {
+        const { firestore, client, history } = this.props;
+        firestore.delete({ collection: 'clients' , doc: client.id })
+            .then(history.push('/'));
+    }
+    
     balanceSubmit = e => {
         e.preventDefault();
         
@@ -23,7 +29,6 @@ class ClientDetails extends Component {
         const clientUpdate = {
             balance: parseFloat(balanceUpdateAmount)
         }
-        
         firestore.update({ collection: 'clients', doc: client.id }, clientUpdate);
     }
     
@@ -44,8 +49,7 @@ class ClientDetails extends Component {
                         </div>
                     </div>
                 </form>
-            )
-            
+            );
         }
         else {
             balanceForm = null;
@@ -65,7 +69,7 @@ class ClientDetails extends Component {
                                 <Link to={`/client/edit/${client.id}`} className="btn btn-dark">
                                     Edit
                                 </Link>
-                                <button className="btn btn-danger">
+                                <button onClick={this.onDelete} className="btn btn-danger">
                                     Delete
                                 </button>
                             </div>
@@ -80,22 +84,32 @@ class ClientDetails extends Component {
                             <div className="row">
                                 <div className="col-md-8 col-sm-6">
                                     <h4>
+                                        ID: {' '}
                                         <span className="text-secondary">{client.id}</span>
                                     </h4>
                                 </div>
                                 <div className="col-md-4 col-sm-6">
-                                    <h3>Balance: ${parseFloat(client.balance).toFixed(2)}
+                                    <h4>Balance: ${parseFloat(client.balance).toFixed(2)}
                                     {` `}
                                     <small>
                                         <a href="#!" onClick={() => { 
-                                        console.log('clicked')
-                                        this.setState({ showBalanceUpdate:  !this.state.showBalanceUpdate})} }></a>
-                                        <i className="fas fa-pencil-alt"></i>
+                                        this.setState({ showBalanceUpdate:  !this.state.showBalanceUpdate})} }>
+                                            <i className="fas fa-pencil-alt"></i>
+                                        </a>
                                     </small>
-                                    </h3>
+                                    </h4>
                                     {balanceForm}
                                 </div>
                             </div>
+                            <hr />
+                            <ul className="list-group">
+                            <li className="list-group-item">
+                              Contact Email: {client.email}
+                            </li>
+                            <li className="list-group-item">
+                              Contact Phone: {client.phone}
+                            </li>
+                          </ul>
                         </div>
                     </div>
                 </div>

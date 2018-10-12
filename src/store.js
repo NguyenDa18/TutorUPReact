@@ -5,12 +5,22 @@ import 'firebase/firestore';
 import { reactReduxFirebase, firebaseReducer }from 'react-redux-firebase';
 import { reduxFirestore, firestoreReducer } from 'redux-firestore';
 
-import { firebaseCredentials } from './utils/config'
+import { firebaseCredentials } from './utils/config';
 
 
 // Reducers
 import notifyReducer from './reducers/notifyReducer';
 import settingsReducer from './reducers/settingsReducer';
+
+// const firebaseConfig = {
+//     apiKey: process.env.REACT_APP_fireBaseApiKey,
+//     authDomain: process.env.REACT_APP_fireBaseAuthDomain,
+//     databaseURL: process.env.REACT_APP_firebaseDatabaseURL,
+//     projectId: process.env.REACT_APP_firebaseProjectId,
+//     storageBucket: process.env.REACT_APP_firebaseStorageBucket,
+//     messagingSenderId: process.env.REACT_APP_firebaseMessagingSenderId,
+// };
+
 
 const firebaseConfig = {
     apiKey: firebaseCredentials.apiKey,
