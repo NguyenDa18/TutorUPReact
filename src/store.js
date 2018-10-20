@@ -1,8 +1,9 @@
 import { createStore, combineReducers, compose } from 'redux';
+import * as functions from 'firebase-functions';
 import firebase from 'firebase';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import 'firebase/firestore';
-import { reactReduxFirebase, firebaseReducer }from 'react-redux-firebase';
+import { reactReduxFirebase, firebaseReducer } from 'react-redux-firebase';
 import { reduxFirestore, firestoreReducer } from 'redux-firestore';
 
 import { firebaseCredentials } from './utils/config';
@@ -20,6 +21,15 @@ const firebaseConfigEnv = {
     storageBucket: process.env.REACT_APP_firebaseStorageBucket,
     messagingSenderId: process.env.REACT_APP_firebaseMessagingSenderId,
 };
+
+const firebaseConf = {
+    apiKey: functions.config().firebaseapikey,
+    authDomain: functions.config().firebaseauthdomain,
+    databaseURL: functions.config().firebasedatabaseurl,
+    projectId: functions.config().firebaseprojectid,
+    storageBucket: functions.config().firebasestoragebucket,
+    messagingSenderId: functions.config().firebasemessagingsenderid
+}
 
 
 const firebaseConfig = {
