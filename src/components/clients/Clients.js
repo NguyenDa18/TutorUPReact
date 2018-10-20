@@ -26,7 +26,6 @@ class Clients extends Component {
         return null;
     }
     
-    
     render() {
         
         const { clients } = this.props;
@@ -37,6 +36,7 @@ class Clients extends Component {
             <div className="row">
                 <div className="col-md-6">
                     {' '}
+                    
                     <h2 class="text-info"><i className="fas fa-users"></i> Tutors </h2>
                 </div>
                 <div className="col-md-6">

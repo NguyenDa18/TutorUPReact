@@ -12,23 +12,23 @@ import { firebaseCredentials } from './utils/config';
 import notifyReducer from './reducers/notifyReducer';
 import settingsReducer from './reducers/settingsReducer';
 
-// const firebaseConfig = {
-//     apiKey: process.env.REACT_APP_fireBaseApiKey,
-//     authDomain: process.env.REACT_APP_fireBaseAuthDomain,
-//     databaseURL: process.env.REACT_APP_firebaseDatabaseURL,
-//     projectId: process.env.REACT_APP_firebaseProjectId,
-//     storageBucket: process.env.REACT_APP_firebaseStorageBucket,
-//     messagingSenderId: process.env.REACT_APP_firebaseMessagingSenderId,
-// };
+const firebaseConfigEnv = {
+    apiKey: process.env.REACT_APP_fireBaseApiKey,
+    authDomain: process.env.REACT_APP_fireBaseAuthDomain,
+    databaseURL: process.env.REACT_APP_firebaseDatabaseURL,
+    projectId: process.env.REACT_APP_firebaseProjectId,
+    storageBucket: process.env.REACT_APP_firebaseStorageBucket,
+    messagingSenderId: process.env.REACT_APP_firebaseMessagingSenderId,
+};
 
 
 const firebaseConfig = {
-    apiKey: firebaseCredentials.apiKey,
-    authDomain: firebaseCredentials.authDomain,
-    databaseURL: firebaseCredentials.databaseURL,
-    projectId: firebaseCredentials.projectId,
-    storageBucket: firebaseCredentials.storageBucket,
-    messagingSenderId: firebaseCredentials.messagingSenderId,
+    apiKey: process.env.REACT_APP_fireBaseApiKey || firebaseCredentials.apiKey,
+    authDomain: process.env.REACT_APP_fireBaseAuthDomain || firebaseCredentials.authDomain,
+    databaseURL: process.env.REACT_APP_fireBaseDatabaseURL || firebaseCredentials.databaseURL,
+    projectId: process.env.REACT_APP_firebaseProjectId || firebaseCredentials.projectId,
+    storageBucket: process.env.REACT_APP_firebaseStorageBucket || firebaseCredentials.storageBucket,
+    messagingSenderId: process.env.REACT_APP_firebaseMessagingSenderId || firebaseCredentials.messagingSenderId,
 };
 
 // react-redux-firebase config
@@ -55,6 +55,9 @@ const rootReducer = combineReducers({
     notify: notifyReducer,
     settings: settingsReducer
 });
+
+// Check for settings in localStorage
+
 
 // Create initial state
 const initialState = {};
