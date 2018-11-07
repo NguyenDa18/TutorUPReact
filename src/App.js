@@ -8,6 +8,7 @@ import store from './store';
 
 // Components
 import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 import AppNavbar from './components/layout/AppNavbar';
 import Dashboard from './components/layout/Dashboard';
 import NotFound from './components/layout/NotFound';
@@ -27,6 +28,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={UserIsAuthenticated(Dashboard)} />
             <Route exact path="/login" component={UserIsNotAuthenticated(Login)} />
+            <Route exact path="/register" component={UserIsNotAuthenticated(Register)} />
             <Route exact path="/settings" component={UserIsAuthenticated(Settings)} />
             <Route exact path="/client/add" component={UserIsAuthenticated(AddClient)} />
             <Route exact path="/client/edit/:id" component={UserIsAuthenticated(EditClient)} />

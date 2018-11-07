@@ -67,6 +67,18 @@ class AppNavbar extends Component {
                             </ul>
                         
                         ) : null}
+                        {!isAuthenticated ? (
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <Link to="/login" className="nav-link">
+                                    Login
+                                </Link>
+                                <Link to="/register" className="nav-link">
+                                    Register
+                                </Link>
+                            </li>
+                        </ul>
+                        ) : null}
                     </div>
                 </div>
             </nav>

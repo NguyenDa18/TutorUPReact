@@ -23,7 +23,7 @@ class Login extends Component {
                 email,
                 password
             })
-            .catch(err => notifyUser('Invalid login credentials', err));
+            .catch(err => notifyUser('Invalid login credentials', 'error'));
     }
     
     onChange = e => this.setState({[e.target.name]: e.target.value});
