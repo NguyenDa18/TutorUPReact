@@ -1,4 +1,4 @@
-import { DISABLE_ON_ADD, DISABLE_ON_EDIT, ALLOW_REGISTRATION }from './types';
+import { DISABLE_ON_ADD, DISABLE_ON_EDIT, ALLOW_REGISTRATION } from './types';
 
 export const setDisableOnAdd = () => {
     return {
