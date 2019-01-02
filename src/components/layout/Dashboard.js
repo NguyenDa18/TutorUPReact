@@ -1,16 +1,19 @@
 import React from 'react';
 import Clients from '../clients/Clients';
 import Sidebar from '../layout/Sidebar';
+import { Row, Col } from 'reactstrap';
 
 export default () => {
     return (
-        <div className="row">
-            <div className="col-md-10">
-                <Clients />
-            </div>
-            <div className="col-md-2">
-                <Sidebar />
-            </div>
-        </div>
+        <React.Fragment>
+            <Row>
+                <Col md="10">
+                    <Clients />
+                </Col>
+                <Col md="2">
+                    <Sidebar />
+                </Col>
+            </Row>
+        </React.Fragment>
     );
 }

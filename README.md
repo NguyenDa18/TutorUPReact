@@ -1,4 +1,5 @@
-# TutorUP with React
+# Tutor Panel with React
+## Track tutoring account balances 
 
 ## Simple balance tracking web app
 - Create a tutor:

@@ -13,15 +13,16 @@ class Register extends Component {
     }
 
     componentWillMount() {
-        const { allowRegistration } = this.props.settings;
 
-        if (!allowRegistration) {
-          this.props.history.push('/');
-        }
+        // if (!allowRegistration) {
+        //   this.props.history.push('/');
+        // }
     }
 
     render() {
-        const { message, messageType } = this.props.notify;
+      const message = 'hi'
+      const messageType = 'int'
+        // const { message, messageType } = this.props.notify;
         return (
           <div className="row">
             <div className="col-md-6 mx-auto">
@@ -78,15 +79,13 @@ Register.propTypes = {
     firebase: PropTypes.object.isRequired
 }
 
-export default Register;
-
-// export default compose(
-//     firebaseConnect(),
-//     connect(
-//         (state, props) => ({
-//             notify: state.notify,
-//             settings: state.settings
-//         }),
-//         { notifyUser }
-//     )
-// )(Register);
+export default compose(
+    firebaseConnect(),
+    connect(
+        (state, props) => ({
+            notify: state.notify,
+            settings: state.settings
+        }),
+        { notifyUser }
+    )
+)(Register);
